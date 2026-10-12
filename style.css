@@ -10,6 +10,22 @@ h1 {
     margin-bottom: -30px;
 }
 
+.ourstory {
+    font-family: 'Pinyon Script', serif;
+    font-size: 80px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+p {
+    font-family: 'Cormorant Upright', serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
 .subheading {
     font-family: 'Pinyon Script', serif;
     font-weight: bold;
