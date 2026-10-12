@@ -1,9 +1,29 @@
+body {
+    background-color: #ffffff;
+}
+
 h1 {
     font-family: 'Pinyon Script';
     font-size: 80px;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: -30px;
+}
+
+.subheading {
+    font-family: 'Pinyon Script', serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.divider {
+    width: 600px;
+    height: 0.5px;
+    background-color: rgb(41, 41, 41);
+    margin: 20px auto;
 }
 
 nav a {
@@ -25,10 +45,15 @@ nav li {
     margin: 0 20px;
 }
 
+nav li:hover {
+    text-decoration: underline;
+}
+
 .image-container {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    margin-bottom: 0px;
 }
 
 .image-container img {
@@ -36,4 +61,94 @@ nav li {
     width: auto;
     height: auto;
     object-fit: cover;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 65px;
+}
+
+.countdown-item span:first-child {
+    font-family: 'Pinyon Script', serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.2;
+}
+
+.countdown-item .label {
+    font-family: 'Cormorant Upright', serif;
+    font-size: 16px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        gap: 15px;
+    }
+
+    .countdown-item {
+        min-width: 50px;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 36px;
+    }
+
+    .countdown-item .label {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+.rsvp-button {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: bold;
+    display: block;
+    width: 600px;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    color: black;
+    margin: -20px auto;
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 1px;
+    background-color: #f1f5f6;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.rsvp-button:hover {
+    background-color: #f1e5c0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f1f5f6;
+    font-family: 'Cormorant Upright', serif;
+    color: #555;
+}
+
+.footer h1 {
+    font-family: 'Pinyon Script', serif;
+    font-weight: normal;
+    font-size: 36px;
+    margin-bottom: -10px;
 }
