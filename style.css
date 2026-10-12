@@ -135,21 +135,12 @@ nav li:hover {
 }
 
 @media (max-width: 480px) {
-    .countdown {
-        gap: 15px;
+    * {
+        box-sizing: border-box;
     }
 
-    .countdown-item {
-        min-width: 50px;
-    }
-
-    .countdown-item span:first-child {
-        font-size: 36px;
-    }
-
-    .countdown-item .label {
-        font-size: 12px;
-        letter-spacing: 1px;
+    body {
+        overflow-x: hidden;
     }
 
     h1 {
@@ -164,22 +155,51 @@ nav li:hover {
     }
 
     .divider {
-        margin: 15px auto;
+        width: 90%;
+        max-width: 100%;
     }
 
-    nav a {
-        font-size: 16px;
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    nav li {
+        margin: 0;
     }
 
     .image-container {
-        margin-top: 25px;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .image-container img {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin: 0 auto;
     }
 
     .countdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
         margin-top: 25px;
         margin-bottom: 30px;
-        padding: 0 10px;
     }
 
     .countdown-item {
@@ -197,17 +217,22 @@ nav li:hover {
     }
 
     .rsvp-button {
-        width: calc(100% - 40px);
+        display: block;
+        width: 90%;
+        max-width: 100%;
         padding: 10px;
+        margin: 20px auto;
         font-size: 20px;
     }
 
     .footer {
+        width: 100%;
+        max-width: 100%;
         padding: 15px 10px;
+        overflow-wrap: break-word;
     }
 
     .footer h1 {
         font-size: 30px;
     }
-}
 }
