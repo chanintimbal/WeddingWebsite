@@ -96,25 +96,6 @@ nav li:hover {
     letter-spacing: 2px;
 }
 
-@media (max-width: 480px) {
-    .countdown {
-        gap: 15px;
-    }
-
-    .countdown-item {
-        min-width: 50px;
-    }
-
-    .countdown-item span:first-child {
-        font-size: 36px;
-    }
-
-    .countdown-item .label {
-        font-size: 12px;
-        letter-spacing: 1px;
-    }
-}
-
 .rsvp-button {
     font-family: 'Cormorant Upright', serif;
     font-weight: bold;
@@ -151,4 +132,82 @@ nav li:hover {
     font-weight: normal;
     font-size: 36px;
     margin-bottom: -10px;
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        gap: 15px;
+    }
+
+    .countdown-item {
+        min-width: 50px;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 36px;
+    }
+
+    .countdown-item .label {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: -15px;
+        padding: 0 10px;
+    }
+
+    .subheading {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+
+    .divider {
+        margin: 15px auto;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    .image-container {
+        margin-top: 25px;
+    }
+
+    .countdown {
+        gap: 10px;
+        margin-top: 25px;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .countdown-item {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 32px;
+    }
+
+    .countdown-item .label {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .rsvp-button {
+        width: calc(100% - 40px);
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .footer {
+        padding: 15px 10px;
+    }
+
+    .footer h1 {
+        font-size: 30px;
+    }
+}
 }
