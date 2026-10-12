@@ -135,11 +135,15 @@ nav li:hover {
 }
 
 @media (max-width: 480px) {
-    * {
+    *,
+    *::before,
+    *::after {
         box-sizing: border-box;
     }
 
+    html,
     body {
+        max-width: 100%;
         overflow-x: hidden;
     }
 
@@ -161,19 +165,33 @@ nav li:hover {
 
     nav {
         width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     nav ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px 15px;
-        padding: 0 10px;
+        align-items: center;
+        gap: 8px 12px;
         width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+        margin: 0;
+        overflow: hidden;
     }
 
     nav li {
         margin: 0;
+        min-width: 0;
+    }
+
+    nav a {
+        display: block;
+        font-size: 14px;
+        white-space: normal;
+        text-align: center;
     }
 
     .image-container {
@@ -218,7 +236,7 @@ nav li:hover {
 
     .rsvp-button {
         display: block;
-        width: 90%;
+        width: calc(100% - 40px);
         max-width: 100%;
         padding: 10px;
         margin: 20px auto;
