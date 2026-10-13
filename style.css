@@ -276,6 +276,43 @@ nav li:hover::after {
     margin-bottom: -10px;
 }
 
+.bio-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Forces equal height for the bio cards */
+    gap: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.bio {
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+    padding: 15px;
+    background-color: #f0f0f0;
+}
+
+.bio img {
+    width: 250px; 
+    height: 350px; 
+    object-fit: cover;
+    object-position: center; 
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.bio h2 {
+    font-family: 'Pinyon Script', serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+
 @media (max-width: 480px) {
     *,
     *::before,
