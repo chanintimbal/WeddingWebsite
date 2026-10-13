@@ -432,4 +432,18 @@ nav li:hover::after {
     .footer h1 {
         font-size: 30px;
     }
+
+    .bio-container {
+        flex-direction: column;
+        gap: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .bio img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 250 / 350;
+    }
 }
