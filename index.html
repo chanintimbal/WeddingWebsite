@@ -13,6 +13,18 @@
 
 </head>
 <body>
+<div id="lock-screen" class="lock-overlay">
+  <div class="lock-box">
+    <h2>Protected Area</h2>
+    <p>Welcome to Chanin & Kaitlyn's wedding website.</p>
+    <div class="input-group">
+      <input type="password" id="password-input" placeholder="Enter password...">
+      <button id="unlock-btn">Unlock</button>
+    </div>
+    <p id="error-message" class="error-text"></p>
+  </div>
+</div>
+
     <h1>Chanin & Kaitlyn</h1>
     <div class="divider"></div>
     <h1 class="subheading">- September 18, 2027 -</h1>
@@ -70,5 +82,6 @@
         <p>This website was programmed from scratch by Chanin Timbal</p>
     </div>
     <script src="countdown.js" defer></script>
+    <script src="password.js" defer></script>
 </body>
 </html>
