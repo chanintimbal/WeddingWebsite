@@ -42,7 +42,7 @@
             <p id="search-error" class="error-text"></p>
         </div>
         
-    <form id="rsvp-form" class="hidden" method="POST">
+    <form id="rsvp-form" class="hidden rsvp-form" method="POST">
         <h3 id="welcome-message"></h3>
 
         <div class="attending-options">
@@ -59,15 +59,16 @@
             </div>
         </div>
 
-
+        <div class="message">
             <label for="message">Message (optional):</label>
             <textarea id="message" name="message"></textarea>
-
+        </div>
+        
             <button type="submit" id="btn-submit">Submit RSVP</button>
         </form>
 
     </div>
-
+    <script src="rsvp.js"></script>
 </body>
 
 </html>
