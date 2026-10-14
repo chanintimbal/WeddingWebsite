@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSearch = document.getElementById('btn-search');
     const lookupContainer = document.getElementById('lookup-container');
     const form = document.getElementById('rsvp-form');
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtn = document.getElementById('btn-submit');
     const guestSearchInput = document.getElementById('guest-search');
     const guestDatalist = document.getElementById('guest-choices');
     const welcomeMessage = document.getElementById('welcome-message');
@@ -14,13 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetch('guests.txt')
         .then(response => {
-            if (!response.ok) throw new Error("Could not load the guest list file.");
+            if (!response.ok) {
+                throw new Error("Could not find your guests.txt file. Make sure it is named exactly 'guests.txt' and is placed in your main repository folder.");
+            }
             return response.text();
         })
         .then(textData => {
             officialGuestList = textData.split('\n')
                 .map(name => name.trim())
                 .filter(name => name.length > 0);
+
+            if (officialGuestList.length === 0) {
+                alert("Warning: Your guests.txt file was found, but it appears to be completely empty!");
+            }
 
             officialGuestList.forEach(name => {
                 const option = document.createElement('option');
@@ -30,11 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error("Error loading guest list:", error);
-            searchError.textContent = "System error: Unable to verify your name right now.";
+            alert("System Notice: " + error.message);
+            searchError.textContent = "Unable to verify guest names at this moment.";
         });
 
     btnSearch.addEventListener('click', () => {
         const typedName = guestSearchInput.value.trim();
+
+        if (!typedName) {
+            searchError.textContent = "Please enter your name.";
+            return;
+        }
 
         const matchedGuest = officialGuestList.find(
             guest => guest.toLowerCase() === typedName.toLowerCase()
@@ -47,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             form.classList.remove('hidden');
             welcomeMessage.textContent = `Welcome, ${matchedGuest}!`;
         } else {
-            searchError.textContent = "We couldn't find that name on the guest list. Please select your name from the options or check your spelling.";
+            searchError.textContent = "We couldn't find that name on the guest list. Please check your spelling or choose from the dropdown menu.";
         }
     });
 
