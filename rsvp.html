@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="h1">
+        <h1>RSVP</h1>
+        <p>Please confirm your attendance by filling out the form below.</p>
+    </div>
+    <div class="divider"></div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="registry.html">Registry</a></li>
+            <li><a href="travel.html">Travel</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="ourstory.html">Our Story</a></li>
+        </ul>
+    </nav>
+
+    <div class="rsvp-wrapper">
+        
+        <div id="lookup-container">
+            <input type="text" id="guest-search" placeholder="e.g., Jane Doe" autocomplete="off">
+            <datalist id="guest-choices"></datalist>
+            <button type="button" id="btn-search">Search</button>
+            <p id="search-error" class="error-text"></p>
+        </div>
+        <div>
+            <form id="rsvp-form" class="hidden" action="submit_rsvp.php" method="POST" class="rsvp-form">
+
+                <div class="attending-options">
+                    <label class="question-title">Will you attend?</label>
+
+                    <div class="radio-row">
+                        <input type="radio" id="attend_yes" name="attendance" value="yes" required>
+                        <label for="attend_yes">Excitedly Yes</label>
+                    </div>
+                    
+                    <div class="radio-row">
+                        <input type="radio" id="attend_no" name="attendance" value="no" required>
+                        <label for="attend_no">Regretfully No</label>
+                    </div>
+                </div>
+
+                <label for="message">Message (optional):</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Submit RSVP</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

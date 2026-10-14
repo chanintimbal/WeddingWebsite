@@ -312,6 +312,98 @@ nav li:hover::after {
     margin-bottom: 10px;
 }
 
+.rsvp-form {
+    background-color: #eae7d1;
+    font-family: 'Cormorant Upright', serif;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 50px;
+}
+
+.rsvp-form button {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: bold;
+    display: block;
+    width: 300px;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    color: black;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 1px;
+    background-color: #f1f5f6;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.rsvp-form button:hover {
+    background-color: #eed074;
+}
+
+.attending-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.radio-row {
+    font-size: 20px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.rsvp-wrapper {
+    font-size: 40px;
+    justify-content: center;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #e8e6e2;
+}
+
+#guest-search {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#btn-search, #btn-submit {
+    width: 100%;
+    padding: 12px;
+    background:rgb(172, 166, 166);
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#btn-search:hover {
+    background-color: #4a574d; /* Sage green */
+    color: white;
+}
+
+.hidden{
+    display: none;
+}
+
+.subtitle { color: #666; font-size: 18px; margin-top: 4px; }
+.error-text { color: #b23b3b; font-size: 14px; margin-top: 8px; }
 
 @media (max-width: 480px) {
     *,
