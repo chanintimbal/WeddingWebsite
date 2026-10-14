@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSVP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="h1">
+    <div class="rsvp-header">
         <h1>RSVP</h1>
         <p>Please confirm your attendance by filling out the form below.</p>
     </div>
+
     <div class="divider"></div>
     <nav>
         <ul>
@@ -35,34 +34,35 @@
     <div class="rsvp-wrapper">
         
         <div id="lookup-container">
-            <input type="text" id="guest-search" placeholder="e.g., Jane Doe" autocomplete="off">
+            <input type="text" id="guest-search" list="guest-choices" placeholder="e.g., Jane Doe" autocomplete="off">
             <datalist id="guest-choices"></datalist>
             <button type="button" id="btn-search">Search</button>
             <p id="search-error" class="error-text"></p>
         </div>
-        <div>
-            <form id="rsvp-form" class="hidden" action="submit_rsvp.php" method="POST" class="rsvp-form">
+        
+        <form id="rsvp-form" class="hidden rsvp-form" method="POST">
+            <h3 id="welcome-message"></h3>
 
-                <div class="attending-options">
-                    <label class="question-title">Will you attend?</label>
+            <div class="attending-options">
+                <span class="question-title">Will you attend?</span>
 
-                    <div class="radio-row">
-                        <input type="radio" id="attend_yes" name="attendance" value="yes" required>
-                        <label for="attend_yes">Excitedly Yes</label>
-                    </div>
-                    
-                    <div class="radio-row">
-                        <input type="radio" id="attend_no" name="attendance" value="no" required>
-                        <label for="attend_no">Regretfully No</label>
-                    </div>
+                <div class="radio-row">
+                    <input type="radio" id="attend_yes" name="attendance" value="yes" required>
+                    <label for="attend_yes">Excitedly Yes</label>
                 </div>
+                
+                <div class="radio-row">
+                    <input type="radio" id="attend_no" name="attendance" value="no" required>
+                    <label for="attend_no">Regretfully No</label>
+                </div>
+            </div>
 
-                <label for="message">Message (optional):</label>
-                <textarea id="message" name="message"></textarea>
+            <label for="message">Message (optional):</label>
+            <textarea id="message" name="message"></textarea>
 
-                <button type="submit">Submit RSVP</button>
-            </form>
-        </div>
+            <button type="submit" id="btn-submit">Submit RSVP</button>
+        </form>
+
     </div>
 
 </body>
