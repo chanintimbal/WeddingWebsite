@@ -42,22 +42,23 @@
             <p id="search-error" class="error-text"></p>
         </div>
         
-        <form id="rsvp-form" class ="hidden" action="https://api.web3forms.com/submit" method="POST">
-            <h3 id="welcome-message"></h3>
+    <form id="rsvp-form" class="hidden" method="POST">
+        <h3 id="welcome-message"></h3>
 
-            <div class="attending-options">
-                <span class="question-title">Will you attend?</span>
+        <div class="attending-options">
+            <span class="question-title">Will you attend?</span>
 
-                <div class="radio-row">
-                    <input type="radio" id="attend_yes" name="attendance" value="yes" required>
-                    <label for="attend_yes">Excitedly Yes</label>
-                </div>
-                
-                <div class="radio-row">
-                    <input type="radio" id="attend_no" name="attendance" value="no" required>
-                    <label for="attend_no">Regretfully No</label>
-                </div>
+            <div class="radio-row">
+                <input type="radio" id="attend_yes" name="attendance" value="yes" required>
+                <label for="attend_yes">Excitedly Yes</label>
             </div>
+            
+            <div class="radio-row">
+                <input type="radio" id="attend_no" name="attendance" value="no" required>
+                <label for="attend_no">Regretfully No</label>
+            </div>
+        </div>
+
 
             <label for="message">Message (optional):</label>
             <textarea id="message" name="message"></textarea>

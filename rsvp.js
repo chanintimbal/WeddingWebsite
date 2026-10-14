@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.text();
         })
         .then(textData => {
-            officialGuestList = textData.split(\(/\r\)?\n/)
+            officialGuestList = textData.split('\n')
                 .map(name => name.trim())
                 .filter(name => name.length > 0);
 
