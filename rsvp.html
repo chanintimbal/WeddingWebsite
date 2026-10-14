@@ -34,13 +34,15 @@
     <div class="rsvp-wrapper">
         
         <div id="lookup-container">
+            <label for="guest-search" class="question-title">Find Your Invitation</label>
+            <p class="subtitle">Please enter your first and last name to RSVP.</p>
             <input type="text" id="guest-search" list="guest-choices" placeholder="e.g., Jane Doe" autocomplete="off">
             <datalist id="guest-choices"></datalist>
             <button type="button" id="btn-search">Search</button>
             <p id="search-error" class="error-text"></p>
         </div>
         
-        <form id="rsvp-form" class="hidden rsvp-form" method="POST">
+        <form id="rsvp-form" class ="hidden" action="https://api.web3forms.com/submit" method="POST">
             <h3 id="welcome-message"></h3>
 
             <div class="attending-options">
