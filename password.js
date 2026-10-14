@@ -6,8 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const unlockBtn = document.getElementById("unlock-btn");
   const errorMessage = document.getElementById("error-message");
 
+  if (localStorage.getItem("wedding_unlocked") === "true") {
+    document.body.classList.add("unlocked");
+    if (lockScreen) {
+      lockScreen.style.display = "none";
+    }
+  }
+
   function checkPassword() {
     if (passwordInput.value === correctPassword) {
+      localStorage.setItem("wedding_unlocked", "true");
+      
       document.body.classList.add("unlocked");
       
       setTimeout(() => {
