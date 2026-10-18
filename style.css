@@ -313,9 +313,9 @@ nav li:hover::after {
 }
 
 .bio img {
-    width: 250px; 
-    height: 350px; 
-    object-fit: cover;
+    width: 100%; 
+    height: 400px; 
+    object-fit: contain;
     object-position: center; 
     display: inline-block;
     margin-bottom: 15px;
