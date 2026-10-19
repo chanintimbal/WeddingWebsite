@@ -205,6 +205,39 @@ nav li:hover::after {
     height: auto !important;
 }
 
+.gallery-wrapper {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #ffffff;
+    
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 95%
+    );
+}
+
+#image-track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+    margin-top: 30px;
+    user-select: none;
+    will-change: transform;
+}
+
+#image-track > .image {
+    height: 350px;
+    object-fit: cover;
+    object-position: center 20%;
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 
 .image-container {
     display: flex;
