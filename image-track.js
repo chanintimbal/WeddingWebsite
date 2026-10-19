@@ -1,74 +1,107 @@
-const track = document.getElementById("image-track");
-const images = Array.from(track.getElementsByClassName("image"));
+const track = document.querySelector("#image-track");
 
-let currentTranslate = -20;
-let startTranslate = -20;
-track.dataset.mouseDownAt = "0";
+let images = Array.from(track.querySelectorAll(".image"));
 
-const gapWidth = 1;
+const imageHeight = 350;
+const gap = 10;
 
-let totalTrackWidth = 0;
-const imagePositions = images.map((image) => {
-    const width = parseFloat(image.dataset.width || 30);
-    image.style.width = `${width}vw`; // Inject the custom width inline
-    
-    const currentBasePos = totalTrackWidth;
-    totalTrackWidth += width + gapWidth;
-    return {
-        basePosition: currentBasePos,
-        width: width
-    };
+let currentTranslate = 0;
+let previousTranslate = 0;
+let mouseDownAt = 0;
+
+images.forEach(image => {
+    const ratio = parseFloat(image.dataset.ratio || 1);
+    image.style.width = `${imageHeight * ratio}px`;
 });
 
-track.style.transform = `translateX(${currentTranslate}vw)`;
+const originalImages = images.map(image => image.cloneNode(true));
 
-const handleOnDown = e => {
-    track.dataset.mouseDownAt = e.clientX;
-    startTranslate = currentTranslate;
+originalImages.forEach(image => {
+    track.appendChild(image);
+});
+
+originalImages.forEach(image => {
+    track.appendChild(image.cloneNode(true));
+});
+
+images = Array.from(track.querySelectorAll(".image"));
+
+const getSetWidth = () => {
+    let width = 0;
+
+    originalImages.forEach(image => {
+        width += image.getBoundingClientRect().width;
+        width += gap;
+    });
+
+    return width;
 };
 
-const handleOnUp = () => {
-    track.dataset.mouseDownAt = "0";
-};
+const updateTrack = () => {
+    const setWidth = getSetWidth();
 
-const handleOnMove = e => {
-    if (e.buttons === 0 && e.type === "mousemove") {
-        track.dataset.mouseDownAt = "0";
+    while (currentTranslate > 0) {
+        currentTranslate -= setWidth;
+        previousTranslate -= setWidth;
     }
 
-    if (track.dataset.mouseDownAt === "0" || !track.dataset.mouseDownAt) return;
+    while (currentTranslate < -setWidth) {
+        currentTranslate += setWidth;
+        previousTranslate += setWidth;
+    }
 
-    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
-    const maxDelta = window.innerWidth / 2;
-    const deltaVW = (mouseDelta / maxDelta) * -50; 
-    
-    currentTranslate = startTranslate + deltaVW;
+    track.style.transform = `translateX(${currentTranslate}px)`;
 
-    images.forEach((image, index) => {
-        const { basePosition, width } = imagePositions[index];
-        const rawPosition = basePosition + currentTranslate;
-        const itemTotalWidth = width + gapWidth;
-        
-        // Dynamic Variable Loop Wrapping
-        let infiniteX = ((rawPosition + itemTotalWidth) % totalTrackWidth);
-        if (infiniteX < 0) {
-            infiniteX += totalTrackWidth;
-        }
-        infiniteX -= itemTotalWidth;
+    images.forEach(image => {
+        const rect = image.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+        const viewportCenter = window.innerWidth / 2;
 
-        const offset = infiniteX - basePosition;
-        image.style.transform = `translateX(${offset}vw)`;
-        
-        // Optional: Keep parallax effect rolling smoothly on variable widths
-        let multiplier = image.classList.contains("image-bjj") ? 1.8 : 1;
-        image.style.objectPosition = `${50 + (infiniteX * 0.15 * multiplier)}% 20%`;
+        const distance = center - viewportCenter;
+        const parallax = distance * 0.03;
+
+        image.style.objectPosition = `${50 + parallax}% 20%`;
     });
 };
 
-window.onmousedown = e => handleOnDown(e);
-window.onmouseup = e => handleOnUp(e);
-window.onmousemove = e => handleOnMove(e);
+const handleDown = (e) => {
+    mouseDownAt = e.clientX;
+    previousTranslate = currentTranslate;
+};
 
-window.ontouchstart = e => handleOnDown(e.touches);
-window.ontouchend = e => handleOnUp(e.changedTouches);
-window.ontouchmove = e => handleOnMove(e.touches);
+const handleMove = (e) => {
+    if (mouseDownAt === 0) return;
+
+    const delta = e.clientX - mouseDownAt;
+
+    currentTranslate = previousTranslate + delta;
+
+    updateTrack();
+};
+
+const handleUp = () => {
+    mouseDownAt = 0;
+};
+
+window.addEventListener("mousedown", handleDown);
+window.addEventListener("mousemove", handleMove);
+window.addEventListener("mouseup", handleUp);
+
+window.addEventListener("touchstart", e => {
+    mouseDownAt = e.touches[0].clientX;
+    previousTranslate = currentTranslate;
+});
+
+window.addEventListener("touchmove", e => {
+    if (mouseDownAt === 0) return;
+
+    const delta = e.touches[0].clientX - mouseDownAt;
+
+    currentTranslate = previousTranslate + delta;
+
+    updateTrack();
+});
+
+window.addEventListener("touchend", handleUp);
+
+updateTrack();
