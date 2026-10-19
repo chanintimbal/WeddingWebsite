@@ -205,6 +205,45 @@ nav li:hover::after {
     height: auto !important;
 }
 
+.gallery-wrapper {
+    width: 100%;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: pan-y;
+
+    
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 95%
+    );
+}
+
+.gallery-wrapper:active{
+    cursor: grabbing;
+}
+
+#image-track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+    margin-top: 30px;
+    user-select: none;
+    will-change: transform;
+}
+
+#image-track > .image {
+    height: 350px;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 
 .image-container {
     display: flex;
