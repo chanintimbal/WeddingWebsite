@@ -327,7 +327,6 @@ nav li:hover::after {
     position: static;
     bottom: 0;
     left: 0;
-    width: 100%;
     margin-top: 40px;
     padding: 20px;
     background-color: #f1f5f6;
