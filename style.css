@@ -148,6 +148,19 @@ p {
     margin: 20px auto;
 }
 
+.divider2 {
+    width: 70%;
+    height: 0.5px;
+    background-color: rgb(41, 41, 41);
+    margin: 20px auto;
+}
+
+.divider2 div {
+    height: 3px;
+    flex: 1;
+    background-color: rgb(41, 41, 41);
+}
+
 nav a {
     font-family: 'Cormorant Upright', serif;
     text-decoration: none;
